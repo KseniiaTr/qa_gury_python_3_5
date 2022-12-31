@@ -1,4 +1,7 @@
 /.idea
 *.log
 /venv
+/.pytest_cache
+/.pytest_cache
+/.pytest_cache
 
