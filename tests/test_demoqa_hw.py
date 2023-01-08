@@ -16,7 +16,7 @@ def test_demoqa_hw(size_browser):
     browser.element('#userEmail').type('alexalekseev@gmail.com')
 
     browser.all('[name=gender]').element_by(have.value('Male')).element('..').click()
-    browser.element('#userNumber').type('89101231212')
+    browser.element('#userNumber').type('8910123121')
 
     browser.element('#dateOfBirthInput').click()
     browser.element('.react-datepicker__month-select').send_keys('May')
@@ -45,18 +45,9 @@ def test_demoqa_hw(size_browser):
 
 
 def test_check_info_in_table():
-    browser.element('.table-responsive').all('td').even.should(have.exact_text(
-                                               'Alex',
-                                               'Alekseev',
-                                               'alexalekseev@gmail.com',
-                                               'Male',
-                                               '89101231212',
-                                               '07 May, 1991',
-                                               'History'
-                                               'Music',
-                                               'Photo_test_yellow.png',
-                                               'Moscow, Pyatnitskaya st 12/12',
-                                               'NCR Delhi'))
+    browser.all('.table-responsive td:nth-child(2)').should(have.texts(
+                                               'Alex Alekseev', 'alexalekseev@gmail.com', 'Male', '8910123121',
+        '07 May,1991', 'History', 'Music', 'Photo_test_yellow.png', 'Delhi, Pyatnitskaya st 12/12', 'NCR Delhi'))
 
 
 
