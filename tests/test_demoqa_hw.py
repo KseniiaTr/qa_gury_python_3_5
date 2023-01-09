@@ -5,11 +5,13 @@ import os
 
 
 def test_demoqa_hw(size_browser):
-    browser.config.hold_browser_open = True
+    #browser.config.hold_browser_open = True
     browser.open('https://demoqa.com/automation-practice-form')
-    browser.all(
-        '[id^=google_ad][id$=__container__').should(have.size_greater_than_or_equal(3)).perform(command.js.remove)
+    #browser.all(
+        #'[id^=google_ad][id$=__container__').should(have.size_greater_than_or_equal(3)).perform(command.js.remove)
 
+    browser.all('[id^=google_ads][id$=container__]').with_(timeout=5).wait_until(have.size_greater_than_or_equal(3))
+    browser.all('[id^=google_ads][id$=container__]').perform(command.js.remove)
 
     browser.element('#firstName').type('Alex')
     browser.element('#lastName').type('Alekseev')
